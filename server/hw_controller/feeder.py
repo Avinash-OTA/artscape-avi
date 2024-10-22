@@ -384,9 +384,9 @@ class Feeder():
     # thread function
     # TODO move this function in a different class?
     def _thf(self, element):
-        # runs the script only it the element is a drawing, otherwise will skip the "before" script
-        if isinstance(element, DrawingElement):
-            self.send_script(self.settings['scripts']['before']["value"])
+        # # runs the script only it the element is a drawing, otherwise will skip the "before" script
+        # if isinstance(element, DrawingElement):
+        #     self.send_script(self.settings['scripts']['before']["value"])
 
         self.logger.info("Starting new drawing with code {}".format(element))
         
@@ -418,11 +418,11 @@ class Feeder():
         with self.status_mutex:
             self._stopped = True
         
-        # runs the script only it the element is a drawing, otherwise will skip the "after" script
-        if isinstance(element, DrawingElement):
-            self.send_script(self.settings['scripts']['after']["value"])
-        if self.is_running():
-            self.stop()
+        # # runs the script only it the element is a drawing, otherwise will skip the "after" script
+        # if isinstance(element, DrawingElement):
+        #     self.send_script(self.settings['scripts']['after']["value"])
+        # if self.is_running():
+        #     self.stop()
 
     # thread that keep reading the serial port
     def on_serial_read(self, l):
